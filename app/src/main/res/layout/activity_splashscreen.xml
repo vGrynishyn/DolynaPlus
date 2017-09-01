@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#87bff2"
+    android:background="@color/colorSplash"
     >
     <ImageView
         android:contentDescription="@string/app_name"
@@ -10,5 +10,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src ="@drawable/splash"/>
+        android:src ="@drawable/splashlogo"/>
 </LinearLayout>

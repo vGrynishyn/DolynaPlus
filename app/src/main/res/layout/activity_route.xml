@@ -7,13 +7,14 @@
         android:id="@+id/district_header"
         android:text="@string/ChooseDistrict"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp" />
+        android:layout_height="25dp"
+        android:textSize="18sp"
+        android:background="@drawable/underline"/>
     <ListView
         android:id="@+id/district_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="2dp"
+        android:dividerHeight="1dp"
         android:divider="@color/colorPrimary"
-        android:background="#87bff2"/>
+        android:background="@color/colorBackground"/>
 </LinearLayout>

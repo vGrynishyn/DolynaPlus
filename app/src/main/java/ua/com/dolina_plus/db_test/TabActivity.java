@@ -1,32 +1,56 @@
 package ua.com.dolina_plus.db_test;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TabHost;
 
-public class TabActivity extends android.app.TabActivity {
+import ua.com.dolina_plus.db_test.adapters.MyFragmentPagerAdapter;
+import ua.com.dolina_plus.db_test.fragments.FragmentA;
+import ua.com.dolina_plus.db_test.fragments.FragmentB;
 
-    long CityId;
+public class TabActivity extends AppCompatActivity {
+
+    private long CityId;
     String Route;
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
 
-        // getting TabHost
-        TabHost tabHost = getTabHost();
-        TabHost.TabSpec tabSpec;
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            CityId = extras.getLong("id");
+            Route = extras.getString("route");
+       }
 
-        tabSpec = tabHost.newTabSpec("tag1");
-        tabSpec.setIndicator("Вкладка 1");
-        tabSpec.setContent(new Intent(this, AddressActivity.class));
-        tabHost.addTab(tabSpec);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        tabSpec = tabHost.newTabSpec("tag2");
-        tabSpec.setIndicator("Вкладка 2");
-        tabSpec.setContent(new Intent(this, AddressActivity.class));
-        tabHost.addTab(tabSpec);
+        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+
+        mViewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), getResources().getStringArray(R.array.titles_tab)));
+
+        mTabLayout.setupWithViewPager(mViewPager);
     }
+        public Long getCityId() {
+            return CityId;
+        }
+        public String getRoute() {
+            return Route;
+        }
+
+
 }

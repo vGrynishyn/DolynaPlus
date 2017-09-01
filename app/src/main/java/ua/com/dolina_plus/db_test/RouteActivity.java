@@ -10,10 +10,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import ua.com.dolina_plus.db_test.fragments.FragmentA;
+import ua.com.dolina_plus.db_test.fragments.FragmentB;
 
 
 public class RouteActivity extends AppCompatActivity {
@@ -43,12 +47,11 @@ public class RouteActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String Route = ((TextView) view).getText().toString();
-                Intent intent = new Intent(getApplicationContext(), AddressActivity.class);
-                Intent intent1 = new Intent(getApplicationContext(), TabActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TabActivity.class);
                 intent.putExtra("id", CityId);
                 intent.putExtra("route", Route);
-                //startActivity(intent);
-                startActivity(intent1);
+
+                startActivity(intent);
            }
         });
 
@@ -62,11 +65,9 @@ public class RouteActivity extends AppCompatActivity {
         super.onResume();
         try {
             sqlHelper.Open_DB();
-            String query = "select _id, route from " + DatabaseHelper.TABLE_ROUTE + " where city_id="+ String.valueOf(CityId);
+            String query = "select _id, route, district from " + DatabaseHelper.TABLE_ROUTE + " where city_id="+ String.valueOf(CityId)+  " group by route order by _id";
             userCursor = sqlHelper.database.rawQuery(query, null);
             String[] headers = new String[]{DatabaseHelper.COLUMN_ROUTE};
-            //String[] headers = new String[]{DatabaseHelper.COLUMN_ROUTE, DatabaseHelper.COLUMN_DISTRICT };
-            //userAdapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item, userCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
             userAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, userCursor, headers, new int[]{android.R.id.text1}, 0);
             mListView.setAdapter(userAdapter);
         }

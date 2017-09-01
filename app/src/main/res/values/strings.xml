@@ -1,6 +1,24 @@
 <resources>
     <string name="app_name">Долина Плюс</string>
     <string name="title_activity_user">UserActivity</string>
+    <string name="ChooseCity">Виберіть місто</string>
     <string name="ChooseDistrict">Виберіть маршрут</string>
     <string name="ChooseAddress">Адреса і час розвезення</string>
+    <string name="MenuSearch">Пошук</string>
+    <string name="MenuAbout">Про програму</string>
+    <string name="MenuExit">Вихід</string>
+    <string name="SearchResult">Знайдені адреси</string>
+    <string name="Monday">Пн. Ср. Пт.</string>
+    <string name="Tuesday">Вт. Чт. Сб.</string>
+    <string name="About">Долина Плюс - графік розвезення питної води.\nVc-6;Vn.-1.7\n\nРозробка: Володимир Гринішин\nvgrinishin@gmail.com</string>
+    <string-array name="titles_tab">
+        <item>Пн-Ср-Пт</item>
+        <item>Вт-Чт-Сб</item>
+    </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="failed_conection_title">Помилка з\'єднання</string>
+    <string name="failed_conection_msg">Підключення до інтернету відсутнє.Будь ласка, перевірте з\'єднання.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Search_params">Параметри пошуку</string>
 </resources>

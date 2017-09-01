@@ -4,17 +4,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ua.com.dolina_plus.db_test.MainActivity">
+    tools:context="ua.com.dolina_plus.db_test.SearchResultActivity">
 
     <TextView
         android:id="@+id/header"
-        android:text="@string/ChooseCity"
+        android:text="@string/SearchResult"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:textSize="18sp"
         android:background="@drawable/underline"/>
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/listSearchResult"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="1dp"
@@ -22,4 +22,3 @@
         android:background="@color/colorBackground"/>
 
 </LinearLayout>
-
